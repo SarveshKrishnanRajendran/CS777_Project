@@ -1,7 +1,7 @@
 # AWS Spot Price Prediction System
 
 ### CS 777 – Big Data Analysis Term Project  
-**Contributors:** Sarvesh Krishnan Rajendran, Shlok Mandloi  
+**Contributors:** Sarvesh Krishnan Rajendran (U86908171), Shlok Mandloi (U45746761) 
 **University:** Boston University Metropolitan College  
 **Guidance:** Dr. Farshid Alizadeh-Shabdiz  
 
@@ -51,20 +51,11 @@ The AWS Spot Price Prediction System leverages **machine learning** and **distri
    - Feed-forward architecture with **Elephas** for distributed training on Spark clusters.  
    - Multi-layer architecture with dropout regularization for robust predictions.  
 
-### **Infrastructure**  
-- **PySpark** for distributed preprocessing and modeling.  
+### **Infrastructure**   
+- **PySpark** for distributed preprocessing and modeling.
+- **Elephas** for distributed deep learning. 
 - **Google Cloud Storage & Dataproc** for scalable, efficient workflows.  
 - **TensorFlow & Keras** for building and evaluating neural networks.
-
----
-
-## 🚀 Results  
-| Metric                 | Linear Regression | Decision Tree | Random Forest | Neural Network |
-|------------------------|------------------|---------------|---------------|----------------|
-| **MSE**               | 16.57           | 12.65         | 12.83         | 0.0004         |
-| **RMSE**              | 4.07            | 3.55          | 3.58          | 0.0210         |
-
-The distributed deep learning model demonstrated superior performance, leveraging the scalability of Elephas and PySpark for efficient large-scale data processing.
 
 ---
 
@@ -86,7 +77,64 @@ The distributed deep learning model demonstrated superior performance, leveragin
 
 ---
 
+## 📦 Installation  
+To replicate or deploy this project, follow these steps:  
+
+1. **Clone the Repository**  
+   ```bash
+   git clone https://github.com/your-username/aws-spot-price-prediction.git
+   cd aws-spot-price-prediction
+   ```
+2. **Set Up the Environment**  
+   - Ensure you have Python 3.8+ installed.  
+   - Install required libraries by running:  
+     ```bash
+     pip install -r requirements.txt
+     ```  
+3. **Install TensorFlow and Elephas**  
+   Run the provided installation script:  
+   ```bash
+   chmod +x install_tf.sh
+   ./install_tf.sh
+   ```
+4. **Set Up Spark**  
+   - Ensure Apache Spark is installed and accessible in your `PATH`.  
+   - Alternatively, install via `pip`:  
+     ```bash
+     pip install pyspark
+     ```
+5. **Google Cloud Configuration**  
+   - Set up Google Cloud Storage (GCS) and Dataproc.  
+   - Ensure your credentials are configured:  
+     ```bash
+     export GOOGLE_APPLICATION_CREDENTIALS="path_to_your_service_account_key.json"
+     ```
+
+---
+     
+## 🔧 Usage  
+1. **Data Preprocessing**  
+   - Modify the GCS bucket paths in `preprocessing.py` to point to your input dataset and output location.  
+   - Run the preprocessing script to clean and encode the data:  
+     ```bash
+     python preprocessing.py
+     ```
+2. **Model Training**  
+   - Train regression models using the `model_testing.py` script:  
+     ```bash
+     python model_testing.py
+     ```  
+3. **Neural Network Training**  
+   - Train the distributed neural network with Elephas:  
+     ```bash
+     python nn_elephas.py
+     ```  
+4. **Evaluation**  
+   - Evaluate trained models using the test dataset. Results will be logged in the console and saved for further analysis.
+5. **Visualization**  
+   - Use the included report and presentation for insights into the model's performance and outcomes.
+
+---
+
 ## 🤝 Acknowledgements  
 We thank **Dr. Farshid Alizadeh-Shabdiz** for guidance and Boston University for providing resources to undertake this project.
-
- 
